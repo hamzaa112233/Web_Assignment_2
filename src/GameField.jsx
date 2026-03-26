@@ -9,23 +9,23 @@ import stadiumImg from './assets/stadium.jpg';
 const GameField = ({ isBowling, isHitting }) => {
   return (
     <div className="cricket-field" style={{ 
-      backgroundImage: `url(${stadiumImg})`, 
-      backgroundSize: 'cover'
+      backgroundImage: `url(${stadiumImg})`,
     }}>
+      {/* The Pitch runs across the middle */}
       <div className="pitch" />
 
-   
-      <img 
-        src={isHitting ? batsmanHit : batsmanReady} 
-        alt="Batsman" 
-        className={`batsman-sprite ${isHitting ? 'hit-animation' : ''}`} 
-      />
-
-    
+      {/* The Ball starts from the right */}
       <img 
         src={ballImg} 
         alt="Ball" 
         className={`ball-sprite ${isBowling ? 'bowling-animation' : ''}`} 
+      />
+
+      {/* The Batsman stands on the left */}
+      <img 
+        src={isHitting ? batsmanHit : batsmanReady} 
+        alt="Batsman" 
+        className={`batsman-sprite ${isHitting ? 'hit-animation' : ''}`} 
       />
     </div>
   );

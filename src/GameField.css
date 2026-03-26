@@ -1,69 +1,73 @@
-
-
+/* GameField.css - Horizontal Version */
 
 .cricket-field {
   width: 100%;
-  height: 450px; 
+  height: 400px;
   position: relative;
   overflow: hidden;
-  border: 5px solid #2e7d32;
   display: flex;
-  justify-content: center;
-  
+  align-items: center; /* Centers the pitch vertically */
   background-size: cover;
   background-position: center;
 }
 
-
 .pitch {
-  width: 100px;
-  height: 100%;
-  background-color: #f3e5ab; 
-  border-left: 2px solid #d4c590;
-  border-right: 2px solid #d4c590;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  width: 100%;
+  height: 100px; /* Pitch is now horizontal */
+  background-color: #f3e5ab;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 2px solid #d4c590;
+  border-bottom: 2px solid #d4c590;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
-
 
 .batsman-sprite {
   position: absolute;
-  bottom: 10%; 
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px; 
+  left: 50px; /* Positioned on the left */
+  top: 50%;
+  transform: translateY(-50%); /* Centered on the pitch */
+  width: 120px;
   mix-blend-mode: multiply;
   z-index: 5;
-  transition: transform 0.1s; 
 }
 
 .ball-sprite {
   position: absolute;
   width: 20px;
-  top: 15%; 
-  left: 50%;
-  transform: translateX(-50%);
+  right: 50px; /* Starts from the right */
+  top: 50%;
+  transform: translateY(-50%);
   mix-blend-mode: multiply;
   display: none;
   z-index: 10;
 }
 
-
+/* Updated Bowling Animation: Right to Left */
 .bowling-animation {
   display: block;
-  animation: deliverBall 1.2s linear forwards;
+  animation: deliverBallHorizontal 1.2s linear forwards;
 }
 
-@keyframes deliverBall {
-  0% { top: 10%; transform: translateX(-50%) scale(0.5); }
-  100% { top: 75%; transform: translateX(-50%) scale(1); }
+@keyframes deliverBallHorizontal {
+  0% { 
+    right: 50px; 
+    transform: translateY(-50%) scale(0.7); 
+  }
+  100% { 
+    right: 80%; /* Moves across to the batsman */
+    transform: translateY(-50%) scale(1); 
+  }
 }
 
+/* Side-view Hit Animation */
 .hit-animation {
-  animation: swingBat 0.3s ease-in-out;
+  animation: swingBatSide 0.3s ease-in-out;
 }
 
-@keyframes swingBat {
-  0% { transform: translateX(-50%) rotate(0deg); }
-  50% { transform: translateX(-50%) rotate(-30deg); }
-  100% { transform: translateX(-50%) rotate(0deg); }
+@keyframes swingBatSide {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(-50%) rotate(-20deg); }
+  100% { transform: translateY(-50%) rotate(0deg); }
 }
