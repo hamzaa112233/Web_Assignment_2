@@ -2,49 +2,51 @@ import React, { useState, useEffect, useRef } from 'react';
 import './PowerBar.css';
 
 const PowerBar = ({ segments, onHit }) => {
-  const [sliderPos, setSliderPos] = useState(0);
-  const requestRef = useRef();
+    const [sliderPos, setSliderPos] = useState(0);
+    const requestRef = useRef();
 
-  // Move the slider continuously [cite: 45, 77]
-  const animateSlider = (time) => {
-    setSliderPos(prev => (prev >= 1 ? 0 : prev + 0.01));
-    requestRef.current = requestAnimationFrame(animateSlider);
-  };
+    // Move the slider continuously [cite: 45, 77]
+    const animateSlider = (time) => {
+        setSliderPos(prev => (prev >= 1 ? 0 : prev + 0.01));
+        requestRef.current = requestAnimationFrame(animateSlider);
+    };
 
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(animateSlider);
-    return () => cancelAnimationFrame(requestRef.current);
-  }, []);
+    useEffect(() => {
+        requestRef.current = requestAnimationFrame(animateSlider);
+        return () => cancelAnimationFrame(requestRef.current);
+    }, []);
 
-  return (
-    <div className="power-bar-wrapper">
-      <div className="power-bar-container" style={{ display: 'flex', height: '40px', width: '100%', position: 'relative' }}>
-        {segments.map((s, i) => (
-          <div key={i} style={{ 
-            width: `${s.prob * 100}%`, 
-            backgroundColor: s.color,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-            fontSize: '12px'
-          }}>
-            {s.label}
-          </div>
-        ))}
-        {/* The Slider [cite: 76] */}
-        <div className="slider" style={{
-          position: 'absolute',
-          left: `${sliderPos * 100}%`,
-          width: '5px',
-          height: '100%',
-          backgroundColor: 'white',
-          border: '1px solid black'
-        }} />
-      </div>
-      <button onClick={() => onHit(sliderPos)}>HIT!</button>
-    </div>
-  );
+    return (
+        <div className="power-bar-wrapper">
+            <div className="power-bar-container" style={{ display: 'flex', height: '40px', width: '100%', position: 'relative' }}>
+                {segments.map((s, i) => (
+                    <div key={i} style={{
+                        width: `${s.prob * 100}%`,
+                        backgroundColor: s.color,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'white',
+                        fontSize: '12px'
+                    }}>
+                        {s.label}
+                    </div>
+                ))}
+                {/* The Slider [cite: 76] */}
+                <div className="slider" style={{
+                    position: 'absolute',
+                    left: `${sliderPos * 100}%`,
+                    width: '5px',
+                    height: '100%',
+                    backgroundColor: 'white',
+                    border: '1px solid black'
+                }} />
+            </div>
+            <button className="hit-btn" onClick={() => onHit(sliderPos)}>
+                HIT!
+            </button>
+        </div>
+    );
 };
 
 export default PowerBar;

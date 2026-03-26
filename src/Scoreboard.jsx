@@ -1,3 +1,5 @@
+import './Scoreboard.css';
+
 const Scoreboard = ({ score, wickets, balls }) => {
   const overs = Math.floor(balls / 6);
   const remainingBalls = balls % 6;

@@ -3,8 +3,9 @@ import Scoreboard from './Scoreboard';
 import PowerBar from './PowerBar';
 import GameField from './GameField';
 import Controls from './Controls';
+import './App.css';
 
-// 1. Define Probability Distributions [cite: 38, 39, 62]
+
 const STYLES = {
   Aggressive: [
     { label: 'Wicket', prob: 0.40, color: 'red' },
@@ -92,26 +93,39 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <Scoreboard score={score} wickets={wickets} balls={balls} />
-      
-      {/* Ensure GameField receives both animation states  */}
-      <GameField isBowling={isBowling} isHitting={isHitting} />
+  <div className="app-container">
+    {/* 1. Standard Game UI */}
+    <Scoreboard score={score} wickets={wickets} balls={balls} /> 
+    <GameField isBowling={isBowling} isHitting={isHitting} />
 
-      {!gameOver ? (
-        <>
-          <PowerBar segments={STYLES[style]} onHit={handleHit} />
-          <Controls setStyle={setStyle} currentStyle={style} />
-        </>
-      ) : (
-        <div className="game-over">
-          <h1>Game Over!</h1>
-          <p>Final Score: {score}/{wickets}</p>
-          <button onClick={restartGame}>Restart Game</button>
+    {!gameOver ? (
+      <>
+        {/* Only show these while the game is active */}
+        <PowerBar segments={STYLES[style]} onHit={handleHit} /> 
+        <Controls setStyle={setStyle} currentStyle={style} /> 
+      </>
+    ) : null}
+
+    {/* 2. ADD THE GAME OVER OVERLAY HERE */}
+    {gameOver && (
+      <div className="game-over-overlay">
+        <div className="game-over-content">
+          <h1 className="game-over-title">MATCH FINISHED!</h1>
+          <div className="final-score-box">
+            <p className="final-score-label">Final Score</p>
+            <h2 className="final-score-text">{score} / {wickets}</h2> 
+            <p className="final-overs-text">
+              Overs: {Math.floor(balls / 6)}.{balls % 6}
+            </p>
+          </div>
+          <button className="restart-btn" onClick={restartGame}>
+            PLAY AGAIN
+          </button>
         </div>
-      )}
-    </div>
-  );
+      </div>
+    )}
+  </div>
+);
 }
 
 export default App;
