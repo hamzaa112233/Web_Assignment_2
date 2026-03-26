@@ -1,0 +1,69 @@
+/* GameField.css additions */
+
+/* The Main Container - Makes the Stadium Visible */
+.cricket-field {
+  width: 100%;
+  height: 450px; /* Essential: The container must have height to see the background */
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #2e7d32;
+  display: flex;
+  justify-content: center;
+  /* Background properties are handled in JSX for easier image importing */
+  background-size: cover;
+  background-position: center;
+}
+
+/* The Pitch - Required for "Proper Alignment"  */
+.pitch {
+  width: 100px;
+  height: 100%;
+  background-color: #f3e5ab; /* Sandy pitch color */
+  border-left: 2px solid #d4c590;
+  border-right: 2px solid #d4c590;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Updated Sprites Logic */
+.batsman-sprite {
+  position: absolute;
+  bottom: 10%; /* Relative positioning is better for different screens */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px; 
+  mix-blend-mode: multiply;
+  z-index: 5;
+  transition: transform 0.1s; /* Makes the transition between sprites smoother */
+}
+
+.ball-sprite {
+  position: absolute;
+  width: 20px;
+  top: 15%; 
+  left: 50%;
+  transform: translateX(-50%);
+  mix-blend-mode: multiply;
+  display: none;
+  z-index: 10;
+}
+
+/* Show ball only when bowling state is true */
+.bowling-animation {
+  display: block;
+  animation: deliverBall 1.2s linear forwards;
+}
+
+@keyframes deliverBall {
+  0% { top: 10%; transform: translateX(-50%) scale(0.5); }
+  100% { top: 75%; transform: translateX(-50%) scale(1); }
+}
+
+.hit-animation {
+  animation: swingBat 0.3s ease-in-out;
+}
+
+@keyframes swingBat {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  50% { transform: translateX(-50%) rotate(-30deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
