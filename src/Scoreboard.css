@@ -1,7 +1,7 @@
-/* Scoreboard.css */
+
 .scoreboard {
-  background: rgba(0, 0, 0, 0.85); /* Dark semi-transparent background */
-  color: #f1c40f; /* Cricket yellow for numbers */
+  background: rgba(0, 0, 0, 0.85); 
+  color: #f1c40f;
   padding: 15px 25px;
   border-radius: 10px;
   display: flex;
@@ -28,7 +28,7 @@
   letter-spacing: 1px;
 }
 
-/* Add a pulse effect when the score updates */
+
 .score-update {
   animation: pulse 0.3s ease-in-out;
 }

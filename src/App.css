@@ -1,4 +1,4 @@
-/* Hit Button Styling */
+
 .hit-btn {
   background: linear-gradient(145deg, #f1c40f, #d4ac0d);
   color: #000;
@@ -18,7 +18,7 @@
   box-shadow: 0 2px #967b08;
 }
 
-/* Game Over Overlay */
+
 .game-over-overlay {
   position: fixed;
   top: 0;
@@ -67,7 +67,7 @@
   margin: 10px 0;
 }
 
-/* Restart Button */
+
 .restart-btn {
   background: #2ecc71;
   color: white;

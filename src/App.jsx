@@ -28,33 +28,33 @@ const STYLES = {
 };
 
 function App() {
-  // Game State [cite: 33, 34, 35, 52]
+
   const [score, setScore] = useState(0);
   const [wickets, setWickets] = useState(0);
   const [balls, setBalls] = useState(0);
   const [style, setStyle] = useState('Aggressive');
   const [isBowling, setIsBowling] = useState(false);
-  const [isHitting, setIsHitting] = useState(false); // Added for batting animation 
+  const [isHitting, setIsHitting] = useState(false); 
   const [gameOver, setGameOver] = useState(false);
 
-  // 2. Logic to handle the shot with animation timing [cite: 48, 49, 120, 124]
+ 
   const handleHit = (sliderValue) => {
-    // Prevent clicking while an animation is already in progress
+   
     if (gameOver || isBowling || isHitting) return;
 
-    // Start Bowling Animation: Ball begins traveling 
+   
     setIsBowling(true);
 
-    // Wait for the ball to "reach" the batsman (matches 1.2s CSS animation) [cite: 120, 124]
+
     setTimeout(() => {
-      setIsBowling(false); // Ball has arrived
-      setIsHitting(true);  // Trigger Batting Swing [cite: 49, 124]
+      setIsBowling(false); 
+      setIsHitting(true); 
 
       let cumulative = 0;
       const currentProbs = STYLES[style];
       let outcome = null;
 
-      // Determine outcome based strictly on slider position [cite: 46, 47, 79, 80]
+      
       for (let segment of currentProbs) {
         cumulative += segment.prob;
         if (sliderValue <= cumulative) {
@@ -63,7 +63,7 @@ function App() {
         }
       }
 
-      // Update Game State based on the result [cite: 33, 34, 50, 53]
+     
       if (outcome === 'Wicket') {
         setWickets(prev => prev + 1);
       } else {
@@ -72,12 +72,12 @@ function App() {
       
       setBalls(prev => prev + 1);
 
-      // End hitting animation after 500ms
+     
       setTimeout(() => setIsHitting(false), 500);
     }, 1200); 
   };
 
-  // Check for Game Over (Limit: 12 balls or 2 wickets) [cite: 24, 53, 83, 84]
+  
   useEffect(() => {
     if (balls >= 12 || wickets >= 2) {
       setGameOver(true);

@@ -1,4 +1,4 @@
-/* Controls.css */
+
 .controls-container {
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@
   color: white;
 }
 
-/* Aggressive Style: Red for Danger/High Risk */
+
 .btn-aggressive {
   background-color: #e74c3c;
   border-bottom: 4px solid #c0392b;
@@ -31,7 +31,7 @@
   box-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
 }
 
-/* Defensive Style: Green for Safety/Low Risk */
+
 .btn-defensive {
   background-color: #2ecc71;
   border-bottom: 4px solid #27ae60;

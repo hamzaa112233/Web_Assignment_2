@@ -1,8 +1,8 @@
-/* PowerBar.css */
+
 .power-bar-container {
   border: 3px solid #333;
   border-radius: 8px;
-  overflow: hidden; /* Keeps segments inside rounded corners */
+  overflow: hidden; 
   margin-top: 20px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }

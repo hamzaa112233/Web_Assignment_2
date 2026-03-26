@@ -1,39 +1,39 @@
-/* GameField.css additions */
 
-/* The Main Container - Makes the Stadium Visible */
+
+
 .cricket-field {
   width: 100%;
-  height: 450px; /* Essential: The container must have height to see the background */
+  height: 450px; 
   position: relative;
   overflow: hidden;
   border: 5px solid #2e7d32;
   display: flex;
   justify-content: center;
-  /* Background properties are handled in JSX for easier image importing */
+  
   background-size: cover;
   background-position: center;
 }
 
-/* The Pitch - Required for "Proper Alignment"  */
+
 .pitch {
   width: 100px;
   height: 100%;
-  background-color: #f3e5ab; /* Sandy pitch color */
+  background-color: #f3e5ab; 
   border-left: 2px solid #d4c590;
   border-right: 2px solid #d4c590;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
-/* Updated Sprites Logic */
+
 .batsman-sprite {
   position: absolute;
-  bottom: 10%; /* Relative positioning is better for different screens */
+  bottom: 10%; 
   left: 50%;
   transform: translateX(-50%);
   width: 150px; 
   mix-blend-mode: multiply;
   z-index: 5;
-  transition: transform 0.1s; /* Makes the transition between sprites smoother */
+  transition: transform 0.1s; 
 }
 
 .ball-sprite {
@@ -47,7 +47,7 @@
   z-index: 10;
 }
 
-/* Show ball only when bowling state is true */
+
 .bowling-animation {
   display: block;
   animation: deliverBall 1.2s linear forwards;

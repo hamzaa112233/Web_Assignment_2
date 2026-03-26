@@ -5,7 +5,7 @@ const PowerBar = ({ segments, onHit }) => {
     const [sliderPos, setSliderPos] = useState(0);
     const requestRef = useRef();
 
-    // Move the slider continuously [cite: 45, 77]
+   
     const animateSlider = (time) => {
         setSliderPos(prev => (prev >= 1 ? 0 : prev + 0.01));
         requestRef.current = requestAnimationFrame(animateSlider);
@@ -32,7 +32,7 @@ const PowerBar = ({ segments, onHit }) => {
                         {s.label}
                     </div>
                 ))}
-                {/* The Slider [cite: 76] */}
+               
                 <div className="slider" style={{
                     position: 'absolute',
                     left: `${sliderPos * 100}%`,
