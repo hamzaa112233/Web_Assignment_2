@@ -1,4 +1,4 @@
-/* GameField.css - Horizontal Version */
+
 
 .cricket-field {
   width: 100%;
@@ -6,14 +6,14 @@
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: center; /* Centers the pitch vertically */
+  align-items: center; 
   background-size: cover;
   background-position: center;
 }
 
 .pitch {
   width: 100%;
-  height: 100px; /* Pitch is now horizontal */
+  height: 100px; 
   background-color: #f3e5ab;
   position: absolute;
   top: 50%;
@@ -25,9 +25,9 @@
 
 .batsman-sprite {
   position: absolute;
-  left: 50px; /* Positioned on the left */
+  left: 50px; 
   top: 50%;
-  transform: translateY(-50%); /* Centered on the pitch */
+  transform: translateY(-50%); 
   width: 120px;
   mix-blend-mode: multiply;
   z-index: 5;
@@ -36,7 +36,7 @@
 .ball-sprite {
   position: absolute;
   width: 20px;
-  right: 50px; /* Starts from the right */
+  right: 50px; 
   top: 50%;
   transform: translateY(-50%);
   mix-blend-mode: multiply;
@@ -44,7 +44,7 @@
   z-index: 10;
 }
 
-/* Updated Bowling Animation: Right to Left */
+
 .bowling-animation {
   display: block;
   animation: deliverBallHorizontal 1.2s linear forwards;
@@ -56,12 +56,12 @@
     transform: translateY(-50%) scale(0.7); 
   }
   100% { 
-    right: 80%; /* Moves across to the batsman */
+    right: 80%; 
     transform: translateY(-50%) scale(1); 
   }
 }
 
-/* Side-view Hit Animation */
+
 .hit-animation {
   animation: swingBatSide 0.3s ease-in-out;
 }

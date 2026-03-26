@@ -11,17 +11,17 @@ const GameField = ({ isBowling, isHitting }) => {
     <div className="cricket-field" style={{ 
       backgroundImage: `url(${stadiumImg})`,
     }}>
-      {/* The Pitch runs across the middle */}
+      
       <div className="pitch" />
 
-      {/* The Ball starts from the right */}
+      
       <img 
         src={ballImg} 
         alt="Ball" 
         className={`ball-sprite ${isBowling ? 'bowling-animation' : ''}`} 
       />
 
-      {/* The Batsman stands on the left */}
+      
       <img 
         src={isHitting ? batsmanHit : batsmanReady} 
         alt="Batsman" 
