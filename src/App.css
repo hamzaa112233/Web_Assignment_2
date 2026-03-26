@@ -83,28 +83,28 @@
   background: #27ae60;
 }
 
-/* App.css */
+
 .app-container {
   width: 100vw;
-  height: 100vh; /* Fills exactly one screen height */
-  overflow: hidden; /* Prevents scrolling */
+  height: 100vh; 
+  overflow: hidden; 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Spreads components out */
+  justify-content: space-between; 
   background-image: url('./assets/stadium.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Ensure the GameField takes up the most space */
+
 .app-container > :nth-child(2) {
   flex-grow: 1; 
   display: flex;
   align-items: center;
 }
 
-/* Make sure GameField itself doesn't have a separate background if App has it */
+
 .cricket-field {
   background: transparent !important; 
 }
